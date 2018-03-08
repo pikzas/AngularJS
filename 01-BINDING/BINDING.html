@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>BINDING</title>
+    <script type="text/javascript" src="../angular.js"></script>
+    <script type="text/javascript" src="binding.js"></script>
+    <link rel="stylesheet" href="../foundation.min.css">
+</head>
+<body >
+<div ng-app="myApp">
+    <div ng-controller="myCtrl">
+        <input type="text" ng-model="data.msg" >
+        <input type="button" ng-click="try()" value="click me"/>
+        <h2>{{2+3 + "hahah"}}</h2>
+        <h3>{{data.msg}}</h3>
+    </div>
+</div>
+</body>
+</html>

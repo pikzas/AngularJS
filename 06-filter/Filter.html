@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BINDING</title>
+    <script type="text/javascript" src="../angular.js"></script>
+    <script type="text/javascript" src="filter.js"></script>
+    <link type="text/css" src="../foundation.min.css">
+</head>
+<body>
+<div ng-app="myApp">
+    <!--
+        在模块中定义一个filter
+        myApp.filter(name,function(){
+            return function(data){
+                return funxxxxxx;
+            }
+        })
+    -->
+    <div ng-controller="myCtrl">
+        <input type="text" ng-model="data.msg">
+        <h2>{{data.msg|myReverse}}</h2>
+    </div>
+</div>
+
+</body>
+</html>

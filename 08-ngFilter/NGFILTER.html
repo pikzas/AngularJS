@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ngFilter</title>
+    <script type="text/javascript" src="../angular.js"></script>
+    <script type="text/javascript" src="ngFilter.js"></script>
+    <link rel="stylesheet" href="../foundation.min.css">
+</head>
+<body>
+<div ng-app="myApp">
+    <!--
+        angularJs的filter示例
+
+        将对象转为字符串 匹配输入的内容
+        <input type="text" ng-model="target">
+
+        将对象转为字符串 匹配输入的内容
+        <input type="text" ng-model="target">
+    -->
+    <div ng-controller="myCtrl">
+        <input type="text" ng-model="target.age">
+        <table>
+            <tr ng-repeat="role in data.cast | filter:target">
+                <td >{{role.name}}</td>
+                <td >{{role.age}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

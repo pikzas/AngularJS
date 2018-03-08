@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BINDING</title>
+    <script type="text/javascript" src="../angular.js"></script>
+    <script type="text/javascript" src="sharing data between controller.js"></script>
+    <link type="text/css" src="../foundation.min.css">
+</head>
+<body>
+<div ng-app="myApp">
+<!--
+    firstCtrl 能与 secondCtrl 之间数据同步是因为 在他们的外部已经有一个data对象
+    将外部的data对象删除掉，他们之间便不再能够同步（注释掉）
+    在需要共享数据的controller父级DOM定义一个service 来实现同步数据的功能 service是单例的
+-->
+
+<!--<input type="text" ng-model="data.message">
+<h1>{{data.message}}</h1>-->
+
+<div ng-controller="firstCtrl">
+    <input type="text" ng-model="data.message">
+    <h1>{{data.message}}</h1>
+</div>
+<div ng-controller="secondCtrl">
+    <input type="text" ng-model="data.message">
+    <h1>{{data.message}}</h1>
+</div>
+</div>
+</body>
+</html>

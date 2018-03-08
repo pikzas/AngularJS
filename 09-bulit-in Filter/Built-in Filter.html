@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BINDING</title>
+    <script type="text/javascript" src="../angular.js"></script>
+    <script type="text/javascript" src="built-in Filter.js"></script>
+    <link rel="stylesheet" href="../foundation.min.css">
+</head>
+<body>
+<div ng-app="myApp">
+    <!--
+        演示内建的filter
+
+        按名字ascii 正序排列
+        <tr ng-repeat="role in data.cast | orderBy:'name'">
+        按名字ascii 倒序排列
+        <tr ng-repeat="role in data.cast | orderBy:'-name'">
+        只显示列表前两个
+        <tr ng-repeat="role in data.cast | limitTo:'2'">
+        只显示列表后两个
+        <tr ng-repeat="role in data.cast | limitTo:'-2'">
+        可以用 | 来进行多重条件筛选
+        <tr ng-repeat="role in data.cast | limitTo:'-2'| orderBy:'name' ">
+    -->
+    <div ng-controller="myCtrl">
+        <input type="text" ng-model="target">
+        <table>
+            <tr ng-repeat="role in data.cast | limitTo:'-2'| orderBy:'name' ">
+                <td>{{role.name}}</td>
+                <td>{{role.age}}</td>
+                <td>{{role.mobile}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>
