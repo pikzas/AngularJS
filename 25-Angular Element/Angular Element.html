@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>25-Angular Element</title>
+    <script type="text/javascript" src="../angular.js"></script>
+    <script type="text/javascript" src="Angular Element.js"></script>
+    <link rel="stylesheet" href="../foundation.min.css">
+</head>
+<body >
+<div ng-app="myApp">
+    <!--
+           在AngularJS指令中直接操作dom是不受鼓励的
+           于是便有了Angular Element与compile函数
+           通过var target = angular.element("<div>{{data.msg}}</div>")
+           可以定义一个dom元素
+
+           定义一个link函数
+           this.link = function(scope){
+                scope.$watch('model.input',function(newVal){
+                    if(newVal === 'targetObj'){
+                         do some thing
+                    }
+                })
+           }
+
+           在compile 中调用link函数
+           compile:function(tElem){
+                tElem.append(target); //将target 在编译期间插入到dom中
+                return link;
+           }
+    -->
+        <my-pass>
+        </my-pass>
+</div>
+</body>
+</html>

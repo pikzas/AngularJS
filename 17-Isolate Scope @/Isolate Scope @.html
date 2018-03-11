@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>17-Isolate Scope @</title>
+    <script type="text/javascript" src="../angular.js"></script>
+    <script type="text/javascript" src="Isolate Scope @.js"></script>
+    <link rel="stylesheet" href="../foundation.min.css">
+</head>
+<body >
+<div ng-app="myApp">
+    <!--
+        isolate scope with @
+        都可以将ctrl中的数据赋值到指令中
+        而且此时的数据对象是个字符串 flavor="{{ctrlFlavor}}"
+        父级ctrl中的数据更新 会同步更新到指令中，
+        但是指令中的数据更新却不会影响到父级ctrl。
+        所以说此时的数据绑定是单方向的。
+        scope:{
+            flavor:'@'
+        }
+        其实可以看作是以下事件的缩写
+        link:function($scope,element,attr){
+            $scope.flavor = attr.flavor;
+        }
+    -->
+    <div ng-controller="myCtrl">
+        <input type="text" ng-model="ctrlFlavor">
+        <div drink flavor="{{ctrlFlavor}}"></div>
+    </div>
+</div>
+</body>
+</html>

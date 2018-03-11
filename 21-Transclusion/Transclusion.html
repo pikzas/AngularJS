@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>21-Transclusion</title>
+    <script type="text/javascript" src="../angular.js"></script>
+    <script type="text/javascript" src="Transclusion.js"></script>
+    <link rel="stylesheet" href="../foundation.min.css">
+</head>
+<body >
+<div ng-app="myApp">
+    <!--
+           21-Transclusion
+           指令嵌套
+           可以将可以将指令内嵌的dom 同样给显示出来 当前版本貌似不OK
+    -->
+    <div ng-controller="myCtrl">
+        <my-direct>
+            <div >a button</div>
+        </my-direct>
+    </div>
+</div>
+</body>
+</html>

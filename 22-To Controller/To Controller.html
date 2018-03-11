@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>22-To Controller</title>
+    <script type="text/javascript" src="../angular.js"></script>
+    <script type="text/javascript" src="To Controller.js"></script>
+    <link rel="stylesheet" href="../foundation.min.css">
+</head>
+<body >
+<div ng-app="myApp">
+    <!--
+           通过指定方法所在的ctrl 名字来精确定位方法位置
+           通过在ctrl 的js中添加 return $scope.myCtrl = this;
+           但是此时 必须在调用方法的时候指定调用的那个ctrl
+    -->
+    <div ng-controller="myCtrl">
+
+        <div class="button" ng-click="myCtrl.sayHi()">click me</div>
+    </div>
+</div>
+</body>
+</html>

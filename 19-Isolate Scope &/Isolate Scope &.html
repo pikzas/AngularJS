@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>19-Isolate Scope &</title>
+    <script type="text/javascript" src="../angular.js"></script>
+    <script type="text/javascript" src="Isolate Scope &.js"></script>
+    <link rel="stylesheet" href="../foundation.min.css">
+</head>
+<body >
+<div ng-app="myApp">
+    <div ng-controller="myCtrl">
+        <!--
+            isolate scope with &
+            scope:{
+                dial:'&'
+            }
+            可以将ctrl中的方法和指令中的方法映射起来，
+            如果需要传递参数，使用{ctrlParam:directiveParm}
+        -->
+        <div ng-controller="myCtrl">
+            <input type="text" ng-model="msg">
+            <div phone dial="callHome(msg)"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

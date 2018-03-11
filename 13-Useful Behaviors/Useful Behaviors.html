@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>13-Useful Behaviors</title>
+    <script type="text/javascript" src="../angular.js"></script>
+    <script type="text/javascript" src="Useful Behaviors.js"></script>
+    <link rel="stylesheet" href="../foundation.min.css">
+</head>
+<body >
+<div ng-app="myApp">
+    <!--
+        通过指令来在元素上绑定事件
+        .directive('demo',function(){
+            return function($scope,element){
+                element.bind('mouseenter',function(){
+                    element.addClass('panel');
+                })
+            }
+        })
+        并且通过自定义属性来往其中传入参数(同样需要驼峰命名)
+        .directive('demo',function(){
+            return function($scope,element.attr){
+                element.bind('mouseenter',function(){
+                    element.addClass(attr.myData);
+                })
+            }
+        })
+    -->
+    <div add-class del-class my-data="panel">for test</div>
+</div>
+</body>
+</html>

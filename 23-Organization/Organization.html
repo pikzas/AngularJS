@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>23-Organization</title>
+    <script type="text/javascript" src="../angular.js"></script>
+    <script type="text/javascript" src="Organization.js"></script>
+    <link rel="stylesheet" href="../foundation.min.css">
+</head>
+<body >
+<div ng-app="myApp">
+    <!--
+           之前的js编写方式其实是一种语法糖
+           更为通用而且合理的方式是
+           按照项目
+           按照是controller 还是directive 来创建js
+    -->
+    <div ng-controller="myCtrl">
+        <div class="button" ng-click="myCtrl.sayHi()">Click me</div>
+        <phone></phone>
+    </div>
+</div>
+</body>
+</html>

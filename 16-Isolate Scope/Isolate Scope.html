@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>16-Isolate Scope</title>
+    <script type="text/javascript" src="../angular.js"></script>
+    <script type="text/javascript" src="Isolate Scope.js"></script>
+    <link rel="stylesheet" href="../foundation.min.css">
+</head>
+<body >
+<div ng-app="myApp">
+    <!--
+       指令中的独立作用域
+       如果不指定指令中的作用域，默认会从父级继承，那样如果有多个指令，则会公用同一个作用域对象
+       通过scope:{} 便可指定当前的指令为独立作用域。
+
+       通过scope:{
+           done:'&'
+       }
+       结合 html 中的done=“doneWork(pdata)” 将指令中的调用的方法定向到指令所在的controller中
+       的doneWork()方法。
+       并通过{pdata:data}的方式，将前者在ctrl中的模型与后者在指令中出现的模型进行绑定。
+
+    -->
+    <div ng-controller="myCtrl">
+        <!--<div ng-controller="secondCtrl">-->
+            <!--<input type="text" ng-model="data.msg">-->
+        <!--</div>-->
+        <div work done="doneWork(z)"></div>
+    </div>
+</div>
+</body>
+</html>

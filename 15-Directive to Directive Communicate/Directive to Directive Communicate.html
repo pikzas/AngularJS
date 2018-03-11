@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>15-Directive to Directive Communicate</title>
+    <script type="text/javascript" src="../angular.js"></script>
+    <script type="text/javascript" src="Directive to Directive Communicate.js"></script>
+    <link rel="stylesheet" href="../foundation.min.css">
+</head>
+<body >
+<div ng-app="myApp">
+    <!--
+        指令之间的互相调用
+        1，如果某个指令中有方法可供别的指令调用，需要将其require到对应的指令中
+        并且名字是不带驼峰的格式。
+        2，如果某一个指令对别的指令有有引用，需要将两个指令同加入到一个dom对象中。
+        3，在被调用方法的那个指令中，通过加入一个空对象来实现作用域在不同对象之间的隔离，
+        即scope:{}，否则多处调用的指令操作的是同一个作用域。
+    -->
+    <div my-direct strength flash fly>have a try</div>
+    <div my-direct strength>strength</div>
+    <!--<div fly>fly</div>-->
+    <!--<div flash>flash</div>-->
+</div>
+</body>
+</html>

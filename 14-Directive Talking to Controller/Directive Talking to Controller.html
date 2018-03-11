@@ -2,18 +2,20 @@
 <html >
 <head>
     <meta charset="UTF-8">
-    <title>01-BINDING</title>
+    <title>14-Directive Talking to Controller</title>
     <script type="text/javascript" src="../angular.js"></script>
-    <script type="text/javascript" src="binding.js"></script>
+    <script type="text/javascript" src="Directive Talking to Controller.js"></script>
     <link rel="stylesheet" href="../foundation.min.css">
 </head>
 <body >
 <div ng-app="myApp">
+    <!--
+        通过指令调用方法
+        推荐将要调用的方法以参数的形式传递给指令
+    -->
     <div ng-controller="myCtrl">
-        <input type="text" ng-model="data.msg" >
         <input type="button" ng-click="try()" value="click me"/>
-        <h2>{{2+3 + "hahah"}}</h2>
-        <h3>{{data.msg}}</h3>
+        <h3 communicate-with-ctrl my-data="try()">mouse onto me</h3>
     </div>
 </div>
 </body>

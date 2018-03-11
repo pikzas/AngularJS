@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>18-Isolate Scope =</title>
+    <script type="text/javascript" src="../angular.js"></script>
+    <script type="text/javascript" src="Isolate Scope =.js"></script>
+    <link rel="stylesheet" href="../foundation.min.css">
+</head>
+<body >
+<div ng-app="myApp">
+    <div ng-controller="myCtrl">
+    <!--
+        isolate scope with =
+        scope:{
+            flavor:'='
+        }
+        都可以将ctrl中的数据和指令中的数据同步
+        而且此时的数据对象是个OBJECT flavor="ctrlFlavor"
+        父级ctrl中的数据更新 会同步更新到指令中，反之同样
+        所以说此时的数据绑定是双向的。
+    -->
+        <div ng-controller="myCtrl">
+            <input type="text" ng-model="ctrlFlavor">
+            <div drink flavor="ctrlFlavor"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
