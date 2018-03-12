@@ -4,28 +4,37 @@
     <meta charset="UTF-8">
     <title>26-scope and $scope</title>
     <script type="text/javascript" src="../angular.js"></script>
-    <script type="text/javascript" src="Angular%20Element.js"></script>
+    <script type="text/javascript" src="scope and $scope.js"></script>
     <link rel="stylesheet" href="../foundation.min.css">
 </head>
 <body >
 <div ng-app="myApp">
     <!--
-           isolate scope with @ = &
-           scope:{
-               number:'@',          //将ctrl中的number属性单向传值给指令
-               network:'=',         //将ctrl中的network对象和指令中的同名对象进行双向绑定
-               call:'&'             //将ctrl中的方法暴露给指令，让其可以调用
-           }
-           可以将ctrl中的方法和指令中的方法映射起来，
-           如果需要传递参数，使用{ctrlParam:directiveParm}
+            在定义controller service directvie的时候 此时的注入的对象是由provider提供，名字是固定的，顺序随意
+            .controller('myCtrl',function ($scope,$route) {
+                console.log($scope);
+                console.log($route);
+            })
+            如果是采用如下的定义方式定义controller，service，则数组中导入对象的顺序，决定了之后方法中对应的对象是哪个
+            .controller('myCtrl',['$scope','$route',function (a,b) {
+                console.log(a); // 此时a 为$scope
+                console.log(b); // 此时b 为$route
+            }])
+
+
+            .directive('myDirective',function ($scope,$route) {
+                return {
+
+                    //此处的对象 名字只是变量名 实际上他们是顺序固定的三个变量
+                    //分别是scope element 和 attr
+                    link:function (scope,element,attr) {
+
+                    }
+                }
+            })
     -->
     <div ng-controller="myCtrl">
-        <phone number="555-1234" network="network" call="callFun(num,msg,net)"></phone>
-        <phone number="000-1234" network="network" call="callFun(num,msg,net)"></phone>
-        <div>
-            <select >
-                <option ng-repeat="x in [1,2,3]">{{x}}</option>
-            </select>
+        <div my-directive>
         </div>
     </div>
 </div>

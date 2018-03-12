@@ -4,29 +4,25 @@
     <meta charset="UTF-8">
     <title>27-TemplateUrl</title>
     <script type="text/javascript" src="../angular.js"></script>
-    <script type="text/javascript" src="Angular%20Element.js"></script>
+    <script type="text/javascript" src="TemplateUrl.js"></script>
     <link rel="stylesheet" href="../foundation.min.css">
 </head>
 <body >
 <div ng-app="myApp">
     <!--
-           isolate scope with @ = &
-           scope:{
-               number:'@',          //将ctrl中的number属性单向传值给指令
-               network:'=',         //将ctrl中的network对象和指令中的同名对象进行双向绑定
-               call:'&'             //将ctrl中的方法暴露给指令，让其可以调用
-           }
-           可以将ctrl中的方法和指令中的方法映射起来，
-           如果需要传递参数，使用{ctrlParam:directiveParm}
+        可以通过定义模板的方式 来定义指令中的html
+        直接将代码抽取到一个html文件，用templateUrl：xxx.html
+        或者在ng-app指令内部定义一个模板
+        <script type="text/ng-template" id=“xxx.html”>
+        </script>
+        同样的通过templateUrl：xxx.html来加载
     -->
     <div ng-controller="myCtrl">
-        <phone number="555-1234" network="network" call="callFun(num,msg,net)"></phone>
-        <phone number="000-1234" network="network" call="callFun(num,msg,net)"></phone>
-        <div>
-            <select >
-                <option ng-repeat="x in [1,2,3]">{{x}}</option>
-            </select>
-        </div>
+        <input type="text" ng-model="model.title">
+        <input type="text" ng-model="model.content">
+        <my-directive title="{{model.title}}">
+            the content is : {{model.content}}
+        </my-directive>
     </div>
 </div>
 </body>
