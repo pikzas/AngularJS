@@ -10,23 +10,9 @@
 <body>
 <div ng-app="myApp">
     <!--
-        angularJs的filter示例
-
-        将对象转为字符串 匹配输入的内容
-        <input type="text" ng-model="target">
-
-        将对象转为字符串 匹配输入的内容
-        <input type="text" ng-model="target">
+       在$routeProvider中使用resolve
     -->
-    <div ng-controller="myCtrl">
-        <input type="text" ng-model="target.age">
-        <table>
-            <tr ng-repeat="role in data.cast | filter:target">
-                <td >{{role.name}}</td>
-                <td >{{role.age}}</td>
-            </tr>
-        </table>
-    </div>
+    <ng-view></ng-view>
 </div>
 
 </body>

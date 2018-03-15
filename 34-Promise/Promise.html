@@ -10,22 +10,10 @@
 <body>
 <div ng-app="myApp">
     <!--
-        angularJs的filter示例
-
-        将对象转为字符串 匹配输入的内容
-        <input type="text" ng-model="target">
-
-        将对象转为字符串 匹配输入的内容
-        <input type="text" ng-model="target">
+        promise 是对未来发生的事情的承诺
     -->
     <div ng-controller="myCtrl">
-        <input type="text" ng-model="target.age">
-        <table>
-            <tr ng-repeat="role in data.cast | filter:target">
-                <td >{{role.name}}</td>
-                <td >{{role.age}}</td>
-            </tr>
-        </table>
+
     </div>
 </div>
 

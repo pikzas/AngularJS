@@ -1,21 +1,18 @@
-angular.module('myApp',[])
-    .factory('DataService',function () {
-        var Datas = {};
-        Datas.cast = [
-            {
-                name:"alex",
-                age:1213123
-            },
-            {
-                name:"blex",
-                age:1378787897
-            },
-            {
-                name:"clex",
-                age:1478897
-            }];
-        return Datas;
+var myApp = angular.module('myApp',[]);
+myApp.factory('DataService',function () {
+       return {
+           message:'i am data'
+       }
     })
-    .controller('myCtrl',function ($scope,DataService) {
+// angular.injector(['myApp']).invoke(function(DataService){
+//         alert(DataService.message);
+//     })
+// myApp.controller('myCtrl',function ($scope,DataService) {
+//         $scope.data = DataService;
+//     })
+myApp.controller('myCtrl',function ($scope,$injector) {
+    $injector.invoke(function(DataService){
         $scope.data = DataService;
+        alert(DataService.message);
     })
+})

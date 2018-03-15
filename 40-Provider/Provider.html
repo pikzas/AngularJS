@@ -10,22 +10,69 @@
 <body>
 <div ng-app="myApp">
     <!--
-        angularJs的filter示例
+        var myApp = angular.module('myApp'.[]);
+        myApp.factory('dataService',function(){
+            return {
+                message:"amazing"
+            }
+        })
+        此时可以用provide的写法来替换上面的service
+        myApp.config(function($provide){
+            $provide.factory('DataService',function () {
+                return {
+                    message:"amazing again"
+                }
+            })
+        });
+        还可以用如下的方法替换
+        myApp.config(function($provide){
+            $provide.provider("DataService",function () {
+                return {
+                    $get: function () {
+                        return {
+                            message:"amazing  !!!"
+                        }
+                    }
+                }
+            })
+        })
+        还可以这样写
+        myApp.provider("DataService",function () {
+            return {
+                $get: function () {
+                    return {
+                        message: "amazing ing !!!"
+                    }
+                }
+            }
+        })
 
-        将对象转为字符串 匹配输入的内容
-        <input type="text" ng-model="target">
+        最后 如果在provider处理数据的之后需要做一些额外的工作（provider优先于config运行）
+        例如provider中提供了除默认$get方法外还有一个setType()方法。而在运行完成provider之后的config方法中需要调用
+        则需要注意此时的方法名必须为provider方法名字加上Provider （例子中的就是DataServiceProvider）否则会提示错误。
+        myApp.provider("DataService",function () {
+            var type;
+            return {
+                setType : function(value){
+                    type = value
+                },
+                $get: function () {
+                    return {
+                        message: type + "amazing ing !!!"
+                    }
+                }
+            }
+        })
 
-        将对象转为字符串 匹配输入的内容
-        <input type="text" ng-model="target">
+        myApp.config(function(DataServiceProvider){
+            DataServiceProvider.setType("some data");
+        })
+
+
+
     -->
     <div ng-controller="myCtrl">
-        <input type="text" ng-model="target.age">
-        <table>
-            <tr ng-repeat="role in data.cast | filter:target">
-                <td >{{role.name}}</td>
-                <td >{{role.age}}</td>
-            </tr>
-        </table>
+        <h2>{{data.message}}</h2>
     </div>
 </div>
 

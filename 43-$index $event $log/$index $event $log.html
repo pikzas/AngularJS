@@ -10,22 +10,21 @@
 <body>
 <div ng-app="myApp">
     <!--
-        angularJs的filter示例
-
-        将对象转为字符串 匹配输入的内容
-        <input type="text" ng-model="target">
-
-        将对象转为字符串 匹配输入的内容
-        <input type="text" ng-model="target">
+        $event 记录事件
+        $log 记录日志
+        通过.config(function($logProvider){
+            $logProvider.debugEnabled(false)；
+        })
+        禁用debug 级别的日志
+        可以在页面上实现debug,info,warn,error级别的输入
     -->
-    <div ng-controller="myCtrl">
-        <input type="text" ng-model="target.age">
-        <table>
-            <tr ng-repeat="role in data.cast | filter:target">
-                <td >{{role.name}}</td>
-                <td >{{role.age}}</td>
-            </tr>
-        </table>
+    <div class="panel" ng-click="ev = $event" ng-repeat="item in 'one'.split('')">
+        {{$index+1}} {{item}}
+        {{ev.pageX}}
+    </div>
+
+    <div class="panel" ng-click="logger.debug($event)" ng-repeat="item in 'two'.split('')">
+        {{$index+1}} {{item}}
     </div>
 </div>
 

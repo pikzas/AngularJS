@@ -1,21 +1,16 @@
-angular.module('myApp',[])
-    .factory('DataService',function () {
-        var Datas = {};
-        Datas.cast = [
-            {
-                name:"alex",
-                age:1213123
-            },
-            {
-                name:"blex",
-                age:1378787897
-            },
-            {
-                name:"clex",
-                age:1478897
-            }];
-        return Datas;
+var app = angular.module('myApp',[]);
+
+app.config(function ($routeProvider) {
+    $routeProvider.when("/",{
+        templateUrl:"app.html",
+        controller:"appCtrl"
+    }).when('/tomato',{
+        template:'potato'
     })
-    .controller('myCtrl',function ($scope,DataService) {
-        $scope.data = DataService;
-    })
+});
+
+app.controller('appCtrl',function ($scope) {
+    $scope.data = {
+        message:"i am data"
+    }
+});

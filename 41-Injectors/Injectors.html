@@ -10,22 +10,26 @@
 <body>
 <div ng-app="myApp">
     <!--
-        angularJs的filter示例
+        一个module 只会有一个injector
+        可以有两种方式使用injector
+        一种
+        angular.injector(['myApp']).invoke(function(DataService){
+            alert(DataService.message);
+        })
+        myApp.controller('myCtrl',function ($scope,DataService) {
+            $scope.data = DataService;
+        })
+        另一种
+        myApp.controller('myCtrl',function ($scope,$injector) {
+            $injector.invoke(function(DataService){
+                $scope.data = DataService;
+                alert(DataService.message);
+            })
+        })
 
-        将对象转为字符串 匹配输入的内容
-        <input type="text" ng-model="target">
-
-        将对象转为字符串 匹配输入的内容
-        <input type="text" ng-model="target">
     -->
     <div ng-controller="myCtrl">
-        <input type="text" ng-model="target.age">
-        <table>
-            <tr ng-repeat="role in data.cast | filter:target">
-                <td >{{role.name}}</td>
-                <td >{{role.age}}</td>
-            </tr>
-        </table>
+        <h3>{{data.message}}</h3>
     </div>
 </div>
 
